@@ -17,9 +17,50 @@
             <a href="contacts.html">Contact Information</a>
         </nav>
     </header>
+
     <h3>Problem Statement:</h3>
-    <p>Something about plants communicating</p>
+    <p>The goal of this project is to make it easier for different machines in Canopii’s automated greenhouse to talk to each other. We did this by connecting a common communication method used in industry—Modbus TCP—with the robotics software system ROS2. This helps all the devices in the greenhouse, like sensors and automated machines, share information smoothly and work together efficiently.</p>
+    <p>Modbus TCP is a standard protocol used for industrial devices, while ROS2 is a modern software platform used for building robot systems. By integrating Modbus TCP into ROS2, we bridge the gap between industrial hardware and robotic control software—making automation in the greenhouse more reliable and scalable.</p>
+    
     <section>
+        <h3>Who is Canopii?</h3>
+        <p>Canopii is a start-up located in Oregon who aims to automate farming in a sustainable and affordable way. We worked directly with their full-scale prototype and software team to complete this project. See more info on Canopii on their website.</p>
+        <img alt="Greenhouse" src="/images/greenhouse_interior.png" style="height: 200px;"/>
+    </section>        
+    <section>
+        <h3>Project Timeline over the 2024-2025 School Year:</h3>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Description</th>
+                <th>End Date</th>
+            </tr>
+            <tr>
+                <td>Demo: Modbus ROS2 node created and functional</td>
+                <td>For the end of term demo and to improve understanding of Modbus, we must create a functional Modbus ROS2 node(s) that are controlled via command line inputs.</td>
+                <td>Week 10 Fall term 2024</td>
+            </tr>
+            <tr>
+                <td>Canopii: ROS2 nodes for Modbus TCP</td>
+                <td>Receiver and subscriber nodes that are compatible with the already existing hardware.</td>
+                <td>Week 3 Winter term 2025</td>
+            </tr>
+            <tr>
+                <td>Software representation of a Stride Field I/O module</td>
+                <td>Functions and interfaces for IO ports that rely on the ROS2 Modbus node</td>
+                <td>Week 9 Winter term 2025</td>
+            </tr>
+            <tr>
+                <td>Software representation of the Agrowtek GCX greenhouse controller.</td>
+                <td>Functions and interfaces for IO ports that rely on the ROS2 Modbus node.</td>
+                <td>Week 9 Winter term 2025</td>
+            </tr>
+            <tr>
+                <td>RFID software representation</td>
+                <td>Functions and interfaces for IO ports on RFID sensors</td>
+                <td>Week 5 Spring term 2025</td>
+            </tr>
+        </table>
     </section>
 </body>
 </html>
