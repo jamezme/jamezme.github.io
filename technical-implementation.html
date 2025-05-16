@@ -30,5 +30,65 @@
       to update the states of devices and ultimately use this to provide more
       automated control the the greenhouse.
     </p>
+
+    <h1>Development challenges and solutions</h1>
+
+    <p>
+        One of our primary challenges faced when working on this project was the 
+        ability to test against the hardware itself. The first route that our team 
+        had taken to achieve testing against these three Modbus-capable modules 
+        was to create simulators for each of them. Matching as closely as possible 
+        to the hardware itself gave us the ability to test our module abstractions 
+        for reading and writing data. This gave us a safe way to test our 
+        implementation before connecting to the hardware.
+    </p>
+
+    <p>
+        Our project partner set up a stable connection to a testing environment that 
+        he specifically set up for our team. This testing environment was separated 
+        from the main greenhouse functionality, which was also connected to the test 
+        hardware. In the beginning, only the Stride I/O Module was connected to our 
+        testing environment. This left the Agrowtek GCX greenhouse controller and the
+        IO-Link Master hardware to be tested later in development. The Stride I/O Module
+        had two inputs looping back to their respective outputs, allowing us to assess
+        some but not all of the functionality against the hardware.
+    </p>
+
+    <p>
+        The next addition to the testing environment was the IO-Link Master which was 
+        specifically being used with a radio frequency identification tag sensor(RFID). 
+        Once set up there was a need for coordination with our project partner to 
+        accomplish proper testing to ensure that the sensor was updating the placement 
+        and removal of the RFID tag within the response time of 0.2 seconds requested 
+        by our project partner.
+    </p>
+
+    <p>
+        Our project partner currently only has one Agrowtek GCX greenhouse controller, 
+        which is in service in the greenhouse. Our team needed to avoid hindering 
+        greenhouse development, this was our primary concern when testing. Coordination 
+        with our project partner allowed us to begin testing against this module, where 
+        we also ran into a Modbus connectivity issue. The Agrowtek GCX greenhouse 
+        controller, unlike the other two modules, has a setting within the physical 
+        interface that had to be toggled to allow Modbus connections to be established.
+    </p>
+
+    <p>
+        There was also the issue with the register addresses being off by one within the
+        documentation versus the hardware itself. The registers are locations where the 
+        data from connected sensors to these modules is stored. After some testing against 
+        hardware, a minor adjustment to the register values within our module abstractions 
+        solved our addressing issue.
+    </p>
+
+    <p>
+        Once our code was merged into our main branch, we consistently failed automated 
+        tests. These tests consisted of spinning up a simulator and running a test script
+        of our module abstractions against it. These test scripts were failing to connect 
+        to the simulators due to a timing issue. The automated testing environment was a 
+        tad too slow when spinning up the simulator which caused the test script to fail 
+        on connection attempt. A simple fix of adding a wait on connection attempts and a
+        set number of retries solved this issue.
+    </p>
 </body>
 </html>
