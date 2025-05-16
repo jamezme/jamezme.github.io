@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS 052 - Technical Implementation</title>
+</head>
+<body>
+    <h1>Technical Implementation</h1>
+
+    <p>
+      This project was developed using only a few technologies, the primary
+      being ROS 2, which is the foundation for the greenhouse automation system.
+      The other key technology is the Modbus communication protocol, using the
+      Python library PyModbus. This communication protocol enables connectivity
+      between commercial off-the-shelf hardware devices and our developed software
+      system.
+    </p>
+    
+    <p>
+      Our software is designed to sit between the off-the-shelf components and
+      Canopii’s proprietary control software, allowing for more automated control
+      over the greenhouse systems. At the core of our component is a ROS 2 node
+      that maintains connections to the off-the-shelf components using the Modbus
+      TCP protocol. Using these connections, it reads the current state of the 
+      device and makes it accessible to the other ROS 2 nodes within the network
+      through a published ROS 2 topic. Aside from reporting the device states,
+      it allows for commands to be sent with ROS 2 (via ROS 2 service calls)
+      to update the states of devices and ultimately use this to provide more
+      automated control the the greenhouse.
+    </p>
+</body>
+</html>
