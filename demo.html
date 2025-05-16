@@ -23,15 +23,48 @@
           <figcaption>System architecture showing ROS2 software components communicating with Modbus-connected hardware for data exchange over a network.</figcaption>
         </figure>
         <h2>Remote Test Rig Demo</h2>
-          <video width="800" height="450" controls>
+          <video width="960" height="540" controls>
             <source src="/images/stride_demo.mp4" type="video/mp4">
             Your browser does not support the video tag.
-            <figcaption>This demo shows the Stride I/O class connecting to hardware via Modbus TCP, verifying both read and write operations.</figcaption>
           </video>
+          <figcaption>This demo shows the Stride I/O class connecting to hardware via Modbus TCP, verifying both read and write operations.</figcaption>
         <h2>Terminal Output Overview</h2>
         <figure>
           <img alt="terminal output overview 1" src="images/terminal_output1.png" />
           <figcaption>This system connects with various devices that help monitor and control the greenhouse. The background system log shows that everything is properly connected, active, and regularly checked for updates.</figcaption>
+        </figure>
+        <figure>
+          <img alt="terminal output overview 2" src="images/terminal_output5.png" />
+          <figcaption>Summary of the Stride I/O Module’s current state and performance.
+            <table>
+              <thead>
+                <tr>
+                  <th>Module</th>
+                  <th>Node ID</th>
+                  <th>Status</th>
+                  <th>Firmware</th>
+                  <th>Inputs</th>
+                  <th>Outputs</th>
+                  <th>Input Freq</th>
+                  <th>Counter</th>
+                  <th>Alarms</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Stride I/O Module 1</td>
+                  <td>245</td>
+                  <td>Active</td>
+                  <td>50505.5050</td>
+                  <td>All OFF</td>
+                  <td>All OFF</td>
+                  <td>0 Hz</td>
+                  <td>1234567890</td>
+                  <td>None</td>
+                </tr>
+              </tbody>
+            </table>
+          </figcaption>
         </figure>
     </main>
 
