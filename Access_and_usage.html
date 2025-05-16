@@ -1,1 +1,64 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS 052 - Access and Usage</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <h1>Access and Usage</h1>
+
+    <p>
+      The project will be available on the source code of Canopii's github repository. This github page is not available to the public due to NDA.
+	Canopii will be able to use our project by adding it to the list of launch targets. Once this is done, Canopii will be able to simply build and run their codebase and our project will run alongside it.
+    </p>
+    
+    <h2 id="requirements">Requirements</h3>
+    <ul>
+    <li><strong>ROS2 Iron</strong></li>
+    <li><strong>Python 3.8</strong></li>
+    </ul>
+    <h2 id="node-architecture">Node Architecture</h3>
+    <pre><code class="lang-text">    +----------------------+        +----------------------+
+    |<span class="hljs-string">  ROS 2 Client Node   </span>|<span class="hljs-string">        </span>|<span class="hljs-string">     Modbus Node      </span>|
+    |<span class="hljs-string">----------------------</span>|<span class="hljs-string">        </span>|<span class="hljs-string">----------------------</span>|
+    |<span class="hljs-string"> - Subscriber          &lt;--------  - Publisher         </span>|
+    |<span class="hljs-string"> - Service Client      &lt;-------&gt;  - Service Server    </span>|
+    +----------------------+        +----------------------+
+                                            |<span class="hljs-string">
+                -------------------------------------------------
+                /                       </span>|<span class="hljs-string">                         \
+    +------------------+     +------------------+     +------------------+
+    </span>|<span class="hljs-string"> IO-Link Master   </span>|<span class="hljs-string">     </span>|<span class="hljs-string">  Agrowtek GCX    </span>|<span class="hljs-string">     </span>|<span class="hljs-string">   Stride IO      </span>|
+    +------------------+     +------------------+     +------------------+
+    </code></pre>
+    <p>The <em>publisher</em> from the modbus node publishes data read from the registers of the devices to the <em>subscriber</em> at a specified polling rate. The polling rate for each device is as follows:</p>
+    <ul>
+    <li><strong>Stride I/O</strong> – 1 second  </li>
+    <li><strong>Agrowtek GCX</strong> – 1 second  </li>
+    <li><strong>IO-Link Master</strong> – 0.2 second</li>
+    </ul>
+    <p>The polling rates are set as a parameter with the following names:</p>
+    <ul>
+    <li>stride_io_polling_interval </li>
+    <li>agrowtek_gcx_polling_interval</li>
+    <li>io_link_master_polling_interval</li>
+    </ul>
+    <p>These polling rates can be configured within the ROS2 parameters with the command:</p>
+    <p><code>ros2 param set &lt;polling_rate_parameter&gt; &lt;polling_rate&gt;</code></p>
+    <p>Within the codebase, the publishers are created with the function:</p>
+    <p><code>create_publisher(format, topic, polling_rate)</code></p>
+    <p>The subscribers need to listen to the specific topic to receive information.</p>
+    <p>The <em>Service Client</em> can communicate with the <em>Service Server</em> in order to write data to the registers of the connected devices. If needed, it can also be used to send a read request as well. After the <em>Service Client</em> sends a message for a request, it will receive a result code that either depicts a success or an error.</p>
+    <ul>
+    <li>SUCCESS = 0</li>
+    <li>ERROR_INVALID_REGISTER = 1</li>
+    <li>ERROR_WRITE_FAILED = 2</li>
+    <li>ERROR_READ_FAILED = 3</li>
+    </ul>
+    
+
+</body>
+</html>
