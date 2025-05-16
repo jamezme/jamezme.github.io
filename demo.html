@@ -29,10 +29,12 @@
           </video>
           <figcaption>This demo shows the Stride I/O class connecting to hardware via Modbus TCP, verifying both read and write operations.</figcaption>
         <h2>Terminal Output Overview</h2>
+        <h3>Device Outputs</h3>
         <figure>
           <img alt="terminal output overview 1" src="images/terminal_output1.png" />
           <figcaption>This system connects with various devices that help monitor and control the greenhouse. The background system log shows that everything is properly connected, active, and regularly checked for updates.</figcaption>
         </figure>
+        <h4>Stride I/O Outputs</h4>
         <figure>
           <img alt="terminal output overview 2" src="images/terminal_output5.png" />
           <figcaption>Summary of the Stride I/O Module’s current state and performance.
@@ -66,7 +68,102 @@
             </table>
           </figcaption>
         </figure>
-    </main>
-
+        <h4>IO-Link Master Outputs</h4>
+        <figure>
+          <img alt="terminal output overview 3" src="images/terminal_output3.png" />
+          <figcaption>Summary of the IO-Link Master Module’s current state and performance.
+            <table>
+              <thead>
+                <tr>
+                  <th>Component</th>
+                  <th>Status</th>
+                  <th>Inputs</th>
+                  <th>Outputs</th>
+                  <th>Diagnostics</th>
+                  <th>Configuration</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>IO-Link Master</td>
+                  <td>Connected</td>
+                  <td>8 digital inputs</td>
+                  <td>8 digital outputs</td>
+                  <td>Available (port-specific)</td>
+                  <td>Configured per port</td>
+                </tr>
+                <tr>
+                  <td>Port X1–X4</td>
+                  <td>Status: 0</td>
+                  <td>Input: 0</td>
+                  <td>Output: 0</td>
+                  <td>Diagnostics: 30–60</td>
+                  <td>Config: 9020–9022</td>
+                </tr>
+                <tr>
+                  <td>Port X5–X8</td>
+                  <td>Status: 0</td>
+                  <td>Input: 0</td>
+                  <td>Output: 0</td>
+                  <td>Diagnostics: 70–100</td>
+                  <td>Config: 9023–9042</td>
+                </tr>
+              </tbody>
+            </table>
+          </figcaption>
+        </figure>
+        <h4>Agrowtek GCX Module Outputs</h4>
+        <figure>
+          <img alt="terminal output overview 4" src="images/terminal_output4.png" />
+          <figcaption>Summary of the Agrowtek GCX Module current state and performance.
+             <table>
+              <thead>
+                <tr>
+                  <th>Sensor Type</th>
+                  <th>Location</th>
+                  <th>Readings</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Environment</td>
+                  <td>AB</td>
+                  <td>
+                    Temp: 0.01°C<br>
+                    Humidity: 0.2%<br>
+                    Light: 3<br>
+                    CO₂: 4 ppm
+                  </td>
+                </tr>
+                <tr>
+                  <td>Hydroponic</td>
+                  <td>AB</td>
+                  <td>
+                    Temp: 0.01°C<br>
+                    pH: 0.02<br>
+                    Conductivity: 3<br>
+                    ORP: 4<br>
+                    Dissolved O₂: 0.05<br>
+                    Flow: 0.6
+                  </td>
+                </tr>
+                <tr>
+                  <td>Weather</td>
+                  <td>AB</td>
+                  <td>
+                    Temp: 0.01°C<br>
+                    Humidity: 0.2%<br>
+                    Light: 3<br>
+                    CO₂: 4 ppm<br>
+                    Wind Speed: 5<br>
+                    Wind Direction: 6<br>
+                    Rain: Yes
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </figcaption>
+        </figure>   
+  </main>
 </body>
 </html>
